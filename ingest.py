@@ -22,7 +22,8 @@ class FAISSVectorStores:
             faiss_db_path="./faiss_vector_store",
             chunk_size=500,
             chunk_overlap=50,
-            device="cuda"):
+            device="cuda",
+            use_multithreading=True):
 
         self.dataset_path = dataset_path
         self.dataset_type = dataset_type
@@ -32,17 +33,24 @@ class FAISSVectorStores:
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         self.device = device
+        self.use_multithreading = use_multithreading
 
     def create_vector_store(self):
         if self.dataset_type == "pdf":
             loader = DirectoryLoader(self.dataset_path, glob='*.pdf', 
-                loader_cls=PyPDFLoader)
+                loader_cls=PyPDFLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
         elif self.dataset_type == "csv":
             loader = DirectoryLoader(self.dataset_path, glob='*.csv', 
-                loader_cls=CSVLoader)
+                loader_cls=CSVLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
+        elif self.dataset_type == "md":
+            loader = DirectoryLoader(self.dataset_path, glob='*.md',
+                show_progress=True, use_multithreading=self.use_multithreading)
         else:
             loader = DirectoryLoader(self.dataset_path, glob='*.*', 
-                loader_cls=UnstructuredFileLoader)
+                loader_cls=UnstructuredFileLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
 
         documents = loader.load()
 
@@ -78,7 +86,8 @@ class QdrantVectorDatabase:
             chunk_overlap=50,
             device="cuda",
             qdrant_url = "http://localhost:6333",
-            name_of_db = "sample_vector_db"):
+            name_of_db = "sample_vector_db",
+            use_multithreading=True):
 
         self.dataset_path = dataset_path
         self.dataset_type = dataset_type
@@ -90,17 +99,24 @@ class QdrantVectorDatabase:
         self.device = device
         self.qdrant_url = qdrant_url
         self.collection_name = name_of_db
+        self.use_multithreading = use_multithreading
     
     def create_vector_database(self):
         if self.dataset_type == "pdf":
             loader = DirectoryLoader(self.dataset_path, glob='*.pdf', 
-                loader_cls=PyPDFLoader)
+                loader_cls=PyPDFLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
         elif self.dataset_type == "csv":
             loader = DirectoryLoader(self.dataset_path, glob='*.csv', 
-                loader_cls=CSVLoader)
+                loader_cls=CSVLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
+        elif self.dataset_type == "md":
+            loader = DirectoryLoader(self.dataset_path, glob='*.md',
+                show_progress=True, use_multithreading=self.use_multithreading)
         else:
             loader = DirectoryLoader(self.dataset_path, glob='*.*', 
-                loader_cls=UnstructuredFileLoader)
+                loader_cls=UnstructuredFileLoader, show_progress=True, 
+                use_multithreading=self.use_multithreading)
 
         documents = loader.load()
 
