@@ -1,2 +1,4 @@
 qdrant_storage/*
 data/*
+__pycache__/*
+old_model.py

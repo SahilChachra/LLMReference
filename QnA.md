@@ -39,10 +39,10 @@ What is Llamacpp?
 
     Parameters while loading a model
 
-    model_path=self.model_path,
+    model_path : path to the model
     temperature : decides how deterministic or creative the output as to be. 0.1 - deterministic/conservative output and 0.9 - more creative and different output
     max_tokens : maximum num of tokens to generate
-    top_p : The model outputs a set of next tokens and their probabilities. Top_p selects a set of token such that their probability scores sum up to 1. Then choose 1 token from it and return a output
+    top_p : The model outputs a set of next tokens and their probabilities. Top_p selects a set of token such that their      probability scores sum up to 1. Then choose 1 token from it and return a output
     n_gpu_layers : num of layers to load in GPU
     n_batch : number of tokens to process in parallel. Should be less than max_tokens
     verbose : print the info while loading the model
@@ -51,3 +51,13 @@ What is CTransformers?
 
 What is GGUF and GGML?
 
+How does caching the LLM model helps?
+
+What are different types of Memory available?
+    
+    ConversationBufferMemory
+    ConversationBufferWindowMemory
+    ConversationSummaryMemory
+    ConversationSummaryBufferMemory
+
+    // https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/

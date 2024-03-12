@@ -58,6 +58,7 @@ def load_llm():
     #     model_type="llama", 
     #     max_new_tokens=512, 
     #     temperature=0.5)
+    
     callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
     llm = LlamaCpp(
         model_path="llama-2-7b-chat.Q5_K_M.gguf",
