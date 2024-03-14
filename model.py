@@ -60,5 +60,5 @@ class LLMModel:
         except Exception as e:
             print("Couldn't load the model. Exception : ", e)
     
-    def getLLM():
+    def getLLM(self):
         return self.__llm

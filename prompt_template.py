@@ -5,5 +5,5 @@ class CustomPromptTemplate:
         self.__prompt = PromptTemplate(template=prompt_data,
                             input_variables=input_variables)
     
-    def getCustomPromptTemplate():
+    def getCustomPromptTemplate(self):
         return self.__prompt
