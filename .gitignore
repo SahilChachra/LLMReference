@@ -1,4 +1,6 @@
 qdrant_storage/*
 data/*
 __pycache__/*
+faiss_vector_store/*
+
 old_model.py
