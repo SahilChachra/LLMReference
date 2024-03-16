@@ -51,6 +51,10 @@ What is CTransformers?
 
 What is GGUF and GGML?
 
+What is KV cache?
+
+What does KV KM means while downloading models?
+
 How does caching the LLM model helps?
 
 What are different types of Memory available?
