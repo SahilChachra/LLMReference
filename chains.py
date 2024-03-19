@@ -6,6 +6,9 @@ from langchain.chains.conversation.memory import ConversationSummaryBufferMemory
 
 
 class RetrievalQAChain:
+    """
+        Use when working with RAGs
+    """
     def __init__(self, llm : LLMModel, prompt : CustomPromptTemplate, db : any, 
                 chain_type : str, return_source_documents : bool) -> None:
         self.__llm = llm
@@ -25,6 +28,9 @@ class RetrievalQAChain:
 
 
 class ConversationalRetrievalQAChain:
+    """
+        Use when you want your RAG application to have memory
+    """
     def __init__(self, llm : LLMModel, condense_prompt : CustomPromptTemplate, 
                 combine_docs_custom_prompt : CustomPromptTemplate, db : any) -> None:
         self.__llm = llm
@@ -47,6 +53,9 @@ class ConversationalRetrievalQAChain:
         return conv_chain, memory
 
 class Conversation:
+    """
+        Use it when you want to build a simple conversational chain
+    """
     def __init__(self, llm : LLMModel, prompt : CustomPromptTemplate, verbose : bool) -> None:
         self.__llm = llm
         self.__prompt = prompt
@@ -62,5 +71,5 @@ class Conversation:
                 max_token_limit=650
             )
         )
-        # conversation.predict(input="What's the weather?")
+        # conversation.predict(input="What's the weather today?")
         return conversation_chain
