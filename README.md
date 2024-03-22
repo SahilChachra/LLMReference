@@ -6,7 +6,7 @@ I will keep updating the repository, keep adding new contents as and when I will
 
 ## Medium Article
 
-To complement the content in this repository, I have also prepared a detailed Medium article that covers the theoretical aspects of Large Language Models.
+To complement the content in this repository, I have also prepared a (detailed Medium article)[https://sahilchachra.medium.com/common-questions-while-working-with-large-language-models-eac051fbf392] that covers the theoretical aspects of Large Language Models.
 
 ## Repository Contents
 
